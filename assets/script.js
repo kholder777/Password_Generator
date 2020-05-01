@@ -1,5 +1,11 @@
-var animals = ["cat", "dog", "bird", "chicken"];
-for (i = 0; i < animals.length; i++) {
-    console.log(animals[i]);
+// link checkbox from html
 
-}
+// link length slider from html
+
+// link generate button from html
+
+// link clipboard button to html
+
+// add event listener for generate button
+
+// add event listeners for checkboxes
