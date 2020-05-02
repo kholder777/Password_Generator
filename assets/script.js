@@ -14,6 +14,13 @@ document.getElementById("clipboard");
 function getRandomLower() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
+// generate random upper. math.floor rounds down, math.random starts at pos 65 of the character code and moves up to 26 places (65-). returning string, because it's a letter.
+function getRandomUpper() {
+	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+// generate random number.
+
+// generate random symbol.
 
 // add event listeners for checkboxes.
 
