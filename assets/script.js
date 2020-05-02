@@ -1,3 +1,11 @@
+document.getElementById("lowercase");
+document.getElementById("uppercase");
+document.getElementById("numbers");
+document.getElementById("specialCharacters");
+document.getElementById("generatePW");
+document.getElementById("lengthPW");
+document.getElementById("clipboard");
+
 // link checkbox from html
 
 // link length slider from html
