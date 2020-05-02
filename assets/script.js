@@ -19,7 +19,9 @@ function getRandomUpper() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 // generate random number.
-
+function getRandomNumber() {
+	return +String.fromCharCode(math.floor(math.random() * 15) + 33);
+}
 // generate random symbol.
 
 // add event listeners for checkboxes.
