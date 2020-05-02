@@ -1,19 +1,15 @@
+// link checkbox from html
 document.getElementById("lowercase");
 document.getElementById("uppercase");
 document.getElementById("numbers");
 document.getElementById("specialCharacters");
+// link generate button from html
 document.getElementById("generatePW");
+// link length slider from html
 document.getElementById("lengthPW");
+// link clipboard button to html
 document.getElementById("clipboard");
 
-// link checkbox from html
-
-// link length slider from html
-
-// link generate button from html
-
-// link clipboard button to html
+// add event listeners for checkboxes
 
 // add event listener for generate button
-
-// add event listeners for checkboxes
