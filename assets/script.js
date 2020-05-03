@@ -19,7 +19,7 @@ genEL.addEventListener("click", () => {
 	const lowerY = lowerEL.checked;
 	const upperY = upperEL.checked;
 	const numberY = numEL.checked;
-	const symY = symEL.checked;
+	const symY = sym.checked;
 
 	resultEL.innerText = generatethePassword(
 		lengthY,
@@ -28,8 +28,16 @@ genEL.addEventListener("click", () => {
 		numberY,
 		symY
 	);
+	console.log(lengthY);
 });
+function generatethePassword(numEL, upperEL, lowerEL, symEL) {}
 
+const randomFunction = {
+	getRandomLower,
+	getRandomUpper,
+	getRandomNumber,
+	getRandomSymbol,
+};
 // generate random lower. math.floor rounds down, math.random starts at pos 97 of the character code and moves up to 26 places (97-123). returning string, because it's a letter.
 function getRandomLower() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
