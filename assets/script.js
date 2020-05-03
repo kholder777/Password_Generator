@@ -15,14 +15,14 @@ const clipEL = document.getElementById("clipboard");
 
 // add event listener for generate button.
 genEL.addEventListener("click", () => {
-	// const lengthY = +lengthEL.value;
+	const lengthY = +lengthEL.value;
 	const lowerY = lowerEL.checked;
 	const upperY = upperEL.checked;
 	const numberY = numEL.checked;
-	const symY = sym.checked;
+	const symY = symEL.checked;
 
 	resultEL.innerText = generatethePassword(
-		// lengthY,
+		lengthY,
 		lowerY,
 		upperY,
 		numberY,
