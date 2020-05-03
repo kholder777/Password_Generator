@@ -26,6 +26,7 @@ function getRandomNumber() {
 function getRandomSymbol() {
 	return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
 }
+
 // add event listeners for checkboxes.
 
 // add event listener for generate button.

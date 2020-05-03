@@ -1,47 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
 
-		<link rel="stylesheet" href="./assets/style.css" />
-	</head>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- personal css -->
+	<link rel="stylesheet" href="./assets/style.css" />
+</head>
 
-	<body>
-		<!-- create main container -->
-
-		<!-- create results display bar -->
-
-		<!-- create clipboard button -->
-
-		<!-- create checkbox for lowercase letters -->
-		<div class="checkbox-container">
-			<label>Lowercase?</label>
-			<input type="checkbox" id="lowercase" checked />
+<body>
+	<!-- create main container -->
+	<div class="card border-danger mb-3" style="width: 20%;">
+		<div class="card-header">Results: </div>
+		<div class="card-body text-danger">
+			<h5 class="card-title">Random Password Generator</h5>
+			<p class="card-text">
+				<ul>
+					<li>
+						<!-- create slider for password length -->
+						<div class="checkbox-container">
+							<label>Special Characters?</label>
+							<input type="checkbox" id="specialCharacters" checked />
+						</div>
+					</li>
+					<li>
+						<!-- create checkbox for lowercase letters -->
+						<div class="checkbox-container">
+							<label>Lowercase?</label>
+							<input type="checkbox" id="lowercase" checked />
+						</div>
+					</li>
+					<li>
+						<!-- create checkbox for uppercase letters -->
+						<div class="checkbox-container">
+							<label>Uppercase?</label>
+							<input type="checkbox" id="uppercase" checked />
+						</div>
+					</li>
+					<li>
+						<!-- create checkbox for numbers -->
+						<div class="checkbox-container">
+							<label>Numbers?</label>
+							<input type="checkbox" id="numbers" checked />
+						</div>
+					</li>
+					<li>
+						<!-- create checkbox for special characters -->
+						<div class="checkbox-container">
+							<label>Special Characters?</label>
+							<input type="checkbox" id="specialCharacters" checked />
+						</div>
+					</li>
+				</ul>
+			</p>
 		</div>
+	</div>
+	<!-- create results display bar -->
 
-		<!-- create checkbox for uppercase letters -->
-		<div class="checkbox-container">
-			<label>Uppercase?</label>
-			<input type="checkbox" id="uppercase" checked />
-		</div>
+	<!-- create clipboard button -->
 
-		<!-- create checkbox for numbers -->
-		<div class="checkbox-container">
-			<label>Numbers?</label>
-			<input type="checkbox" id="numbers" checked />
-		</div>
-		<!-- create checkbox for special characters -->
-		<div class="checkbox-container">
-			<label>Special Characters?</label>
-			<input type="checkbox" id="specialCharacters" checked />
-		</div>
+	<!-- create checkbox for lowercase letters -->
+	<div class="checkbox-container">
+		<label>Lowercase?</label>
+		<input type="checkbox" id="lowercase" checked />
+	</div>
 
-		<!-- create slider for password length -->
+	<!-- create checkbox for uppercase letters -->
+	<div class="checkbox-container">
+		<label>Uppercase?</label>
+		<input type="checkbox" id="uppercase" checked />
+	</div>
 
-		<!-- generate button -->
+	<!-- create checkbox for numbers -->
+	<div class="checkbox-container">
+		<label>Numbers?</label>
+		<input type="checkbox" id="numbers" checked />
+	</div>
+	<!-- create checkbox for special characters -->
+	<div class="checkbox-container">
+		<label>Special Characters?</label>
+		<input type="checkbox" id="specialCharacters" checked />
+	</div>
 
-		<script src="./assets/script.js"></script>
-	</body>
+	<!-- create slider for password length -->
+
+	<!-- generate button -->
+
+	<script src="./assets/script.js"></script>
+</body>
+
 </html>
