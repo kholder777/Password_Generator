@@ -1,14 +1,14 @@
 // link checkbox from html.
-document.getElementById("lowercase");
-document.getElementById("uppercase");
-document.getElementById("numbers");
-document.getElementById("specialCharacters");
+const lowerEL = document.getElementById("lowercase");
+const upperEL = document.getElementById("uppercase");
+const numEL = document.getElementById("numbers");
+const symEL = document.getElementById("specialCharacters");
 // link generate button from html.
-document.getElementById("generatePW");
+const genEL = document.getElementById("generatePW");
 // link length slider from html.
-document.getElementById("lengthPW");
+const length = document.getElementById("lengthPW");
 // link clipboard button to html.
-document.getElementById("clipboard");
+const clipEL = document.getElementById("clipboard");
 
 // generate random lower. math.floor rounds down, math.random starts at pos 97 of the character code and moves up to 26 places (97-123). returning string, because it's a letter.
 function getRandomLower() {
