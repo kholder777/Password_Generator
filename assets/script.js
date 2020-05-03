@@ -20,10 +20,12 @@ function getRandomUpper() {
 }
 // generate random number.
 function getRandomNumber() {
-	return +String.fromCharCode(math.floor(math.random() * 15) + 33);
+	return +String.fromCharCode(math.floor(math.random() * 10) + 48);
 }
 // generate random symbol.
-
+function getRandomSymbol() {
+	return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
+}
 // add event listeners for checkboxes.
 
 // add event listener for generate button.
