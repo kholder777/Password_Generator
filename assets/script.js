@@ -19,46 +19,25 @@ genEL.addEventListener("click", () => {
 	const lowerY = lowerEL.checked;
 	const upperY = upperEL.checked;
 	const numberY = numEL.checked;
-	const symY = symEL.checked;
-	resultEL.innerText = GenPassword(lengthY, lowerY, upperY, numberY, symY);
+	const symY = sym.checked;
+
+	resultEL.innerText = generatethePassword(
+		lengthY,
+		lowerY,
+		upperY,
+		numberY,
+		symY
+	);
+	console.log(lengthY);
 });
-// function GenPasswordDumb() {
-// 	return "dumbpassword";
-// }
-// add password function
-function GenPassword(lng, lwr, upr, num, sym) {
-	// 1-init pw var.
-	var GenPassW = "";
+function generatethePassword(numEL, upperEL, lowerEL, symEL) {}
 
-	// 3-loop over length, and call generator function for each type.
-	for (i = 0; i < lng; i++) {
-		console.log(i);
-		console.log(GenPassW);
-		GenPassW = GenPassW + "" + i;
-		GenPassW += ("lwr", "upr", "num", "sym");
-	}
-
-	// 2-filter out unchecked types.
-	return GenPassW;
-	// 4-add final pw to the pw var and return it.
-}
-
-// resultEL.innerText = generatethePassword(
-// 	lengthY,
-// 	lowerY,
-// 	upperY,
-// 	numberY,
-// 	symY
-// );
-
-// function generatethePassword(numEL, upperEL, lowerEL, symEL) {}
-
-// const randomFunction = {
-// 	getRandomLower,
-// 	getRandomUpper,
-// 	getRandomNumber,
-// 	getRandomSymbol,
-// };
+const randomFunction = {
+	getRandomLower,
+	getRandomUpper,
+	getRandomNumber,
+	getRandomSymbol,
+};
 // generate random lower. math.floor rounds down, math.random starts at pos 97 of the character code and moves up to 26 places (97-123). returning string, because it's a letter.
 function getRandomLower() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
