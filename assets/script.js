@@ -42,6 +42,14 @@ function GenPassword(lng, lwr, upr, num, sym) {
 	return GenPassW;
 	// 4-add final pw to the pw var and return it.
 }
+if (GenPassword == 0) {
+	getRandomLower();
+	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+} else if (GenPassword == 1) {
+	getRandomUpper();
+	String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+} else {
+}
 
 // resultEL.innerText = generatethePassword(
 // 	lengthY,
