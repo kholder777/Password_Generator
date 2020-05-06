@@ -44,11 +44,12 @@ function GenPassword(lng, lwr, upr, num, sym) {
 }
 if (GenPassword == 0) {
 	getRandomLower();
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+	String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 } else if (GenPassword == 1) {
 	getRandomUpper();
 	String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 } else {
+	alert("bad");
 }
 
 // resultEL.innerText = generatethePassword(
