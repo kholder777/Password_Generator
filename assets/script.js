@@ -10,7 +10,22 @@ const resultEL = document.getElementById("result");
 const genEL = document.getElementById("generatePW");
 // link clipboard button to html.
 const clipEL = document.getElementById("clipboard");
+// ........clipboard w3schools version...................
+function myFunction() {
+	/* Get the text field */
+	var copyText = document.getElementById("myInput");
 
+	/* Select the text field */
+	copyText.select();
+	copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+	/* Copy the text inside the text field */
+	document.execCommand("copy");
+
+	/* Alert the copied text */
+	alert("Copied the text: " + copyText.value);
+}
+//   ..............................................................
 // add event listeners for checkboxes.
 
 // add event listener for generate button.
@@ -26,19 +41,8 @@ genEL.addEventListener("click", function () {
 // add password function (a pass by parameter local variables.)
 function GenPassword(lng, lowerY, upperY, numberY, symY) {
 	// init password var.
+
 	// filter out unchecked types.
-	// var typesCount = lwr + upr + num + sym;
-	// console.log("#ofTypes= ", typesCount);
-	// const typeArry = [{ lwr }, { upr }, { num }, { sym }].filter(
-	// 	(item) => Object.values(item)[0]
-	// );
-	// if (typesCount === 0) {
-	// 	return "";
-	// }
-	// console.log("typeArry: ", typeArry);
-
-	// loop over length, and call generator function for each type.
-
 	if (
 		lowerY === false &&
 		upperY === false &&
@@ -46,29 +50,30 @@ function GenPassword(lng, lowerY, upperY, numberY, symY) {
 		symY === false
 	) {
 		alert("no boxes selected!");
-		return false;
+		return "Please check >/= 1 box.";
 	}
 	var GenPassW = "";
+	var w = 0;
 	// console.log(GenPassW);
 	for (var i = 0; i < lng; i++) {
-		// console.log(i);
-		// characters to choose for pw
+		w++;
+		// it's interesting to see how many times this has to run before a password is generated. using new variable w.
+		console.log(w);
 		var newvar = randomCharacter();
+		// if randomCharacter function returns nothing, subtract the i that was added.
 		if (newvar.length === 0) {
 			i -= 1;
 		}
+		// add final pw to the pw var and return it.
 		GenPassW += newvar;
 
 		console.log(GenPassW);
-
-		// console.log(GenPassW);
-		// add final pw to the pw var and return it.
 	}
 
-	// getRandomNumber();
+	// loop over length, and call generator function for each type.
+
 	function randomCharacter() {
 		var generatedNumber = Math.floor(Math.random() * 4) + 1;
-
 		if (generatedNumber === 1) {
 			return getRandomLower(lowerY);
 		} else if (generatedNumber === 2) {

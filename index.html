@@ -16,7 +16,7 @@
 	<!-- create main container -->
 	<div class="card border-danger mb-3" style="width: 400px;">
 		<div class="card-header">
-			<p id="result" value="car">Result!</p>
+			<p id="result" type="text" value="not a password">Result!</p>
 		</div>
 		<div class="card-body text-danger">
 			<h5 class="card-title">Random Password Generator</h5>
@@ -25,7 +25,7 @@
 					<li>
 						<!-- create slider for password length -->
 						<div class="slidecontainer">
-							<input type="range" min="4" max="30" value="4" class="slider" id="lengthPW">
+							<input type="range" min="8" max="128" value="64" class="slider" id="lengthPW">
 						</div>
 					</li>
 					<li>
@@ -62,6 +62,12 @@
 				Password!</button>
 			<button id="clipboard" class="btn btn-secondary btn-sm active" role="button"
 				aria-pressed="true">Copy</button>
+			<!-- clipboard w3schools version............ -->
+			<input type="text" value="Hello World" id="myInput">
+
+			<!-- The button used to copy the text -->
+			<button onclick="myFunction()">Copy text</button>
+			<!-- ....................................... -->
 		</div>
 	</div>
 	<!-- create results display bar -->
