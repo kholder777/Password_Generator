@@ -21,11 +21,11 @@ genEL.addEventListener("click", function () {
 	const numberY = numEL.checked;
 	const symY = symEL.checked;
 	resultEL.innerText = GenPassword(lengthY, lowerY, upperY, numberY, symY);
+	//resultEL.innerText = GenPassword(5, true, false, false, false);
 });
-// add password function
-function GenPassword(lng, lwr, upr, num, sym) {
+// add password function (a pass by parameter local variables.)
+function GenPassword(lng, lowerY, upperY, numberY, symY) {
 	// init password var.
-	var GenPassW = "";
 	// filter out unchecked types.
 	// var typesCount = lwr + upr + num + sym;
 	// console.log("#ofTypes= ", typesCount);
@@ -38,30 +38,47 @@ function GenPassword(lng, lwr, upr, num, sym) {
 	// console.log("typeArry: ", typeArry);
 
 	// loop over length, and call generator function for each type.
-	for (i = 0; i < lng; i++) {
-		console.log(i);
-		console.log(GenPassW);
-		GenPassW = GenPassW + "";
-		// characters to choose for pw
-		var GenPassW = ["lwr", "upr", "num", "sym"];
 
+	if (
+		lowerY === false &&
+		upperY === false &&
+		numberY === false &&
+		symY === false
+	) {
+		alert("no boxes selected!");
+		return false;
+	}
+	var GenPassW = "";
+	// console.log(GenPassW);
+	for (var i = 0; i < lng; i++) {
+		// console.log(i);
+		// characters to choose for pw
+		var newvar = randomCharacter();
+		if (newvar.length === 0) {
+			i -= 1;
+		}
+		GenPassW += newvar;
+
+		console.log(GenPassW);
+
+		// console.log(GenPassW);
 		// add final pw to the pw var and return it.
-		// return GenPassW;
 	}
 
-	// if (lowerY === ) {
-	// 	getRandomLower();
-	// } else if (GenPassword == 1) {
-	// 	getRandomUpper();
-	// } else if (GenPassword == 2) {
-	// 	getRandomNumber();
-	// } else if (GenPassword == 3) {
-	// 	getRandomSymbol();
-	// } else {
-	// 	prompt("nope!");
-	// }}
-	getRandomNumber();
+	// getRandomNumber();
+	function randomCharacter() {
+		var generatedNumber = Math.floor(Math.random() * 4) + 1;
 
+		if (generatedNumber === 1) {
+			return getRandomLower(lowerY);
+		} else if (generatedNumber === 2) {
+			return getRandomUpper(upperY);
+		} else if (generatedNumber === 3) {
+			return getRandomNumber(numberY);
+		} else if (generatedNumber === 4) {
+			return getRandomSymbol(symY);
+		}
+	}
 	// resultEL.innerText = generatethePassword(
 	// 	lengthY,
 	// 	lowerY,
@@ -79,20 +96,37 @@ function GenPassword(lng, lwr, upr, num, sym) {
 	// 	getRandomSymbol,
 	// };
 	// generate random lower. math.floor rounds down, math.random starts at pos 97 of the character code and moves up to 26 places (97-123). returning string, because it's a letter.
-	function getRandomLower() {
-		return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+	function getRandomLower(checklow) {
+		if (checklow === true) {
+			return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+		} else {
+			return "";
+		}
 	}
 	// generate random upper. math.floor rounds down, math.random starts at pos 65 of the character code and moves up to 26 places (65-). returning string, because it's a letter.
-	function getRandomUpper() {
-		return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+	function getRandomUpper(checkupper) {
+		if (checkupper === true) {
+			return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+		} else {
+			return "";
+		}
 	}
 	// generate random number. the + before String forces it to return a number.
-	function getRandomNumber() {
-		console.log(+String.fromCharCode(math.floor(math.random() * 10) + 48));
-		return +String.fromCharCode(math.floor(math.random() * 10) + 48);
+	function getRandomNumber(checknumber) {
+		if (checknumber === true) {
+			// console.log(String.fromCharCode(Math.floor(Math.random() * 10) + 48));
+			return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+		} else {
+			return "";
+		}
 	}
 	// generate random symbol.
-	function getRandomSymbol() {
-		return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
+	function getRandomSymbol(checksymbol) {
+		if (checksymbol === true) {
+			return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
+		} else {
+			return "";
+		}
 	}
+	return GenPassW;
 }
