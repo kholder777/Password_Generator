@@ -46,7 +46,7 @@ function GenPassword(lng, lowerY, upperY, numberY, symY) {
 		symY === false
 	) {
 		alert("no boxes selected!");
-		return false;
+		return "Please check >/= 1 box.";
 	}
 	var GenPassW = "";
 	// console.log(GenPassW);
