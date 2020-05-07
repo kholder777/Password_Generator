@@ -21,8 +21,9 @@ genEL.addEventListener("click", function () {
 	const numberY = numEL.checked;
 	const symY = symEL.checked;
 	resultEL.innerText = GenPassword(lengthY, lowerY, upperY, numberY, symY);
+	//resultEL.innerText = GenPassword(5, true, false, false, false);
 });
-// add password function
+// add password function (a pass by parameter local variables.)
 function GenPassword(lng, lowerY, upperY, numberY, symY) {
 	// init password var.
 	// filter out unchecked types.
@@ -38,26 +39,6 @@ function GenPassword(lng, lowerY, upperY, numberY, symY) {
 
 	// loop over length, and call generator function for each type.
 
-	if (lowerY === true) {
-		var randLowerRes = getRandomLower();
-		// console.log("lowr y true");
-		console.log(randLowerRes);
-	}
-	if (upperY === true) {
-		var randUpperRes = getRandomUpper();
-		// console.log("upr y true");
-		console.log(randUpperRes);
-	}
-	if (numberY === true) {
-		var randNumRes = getRandomNumber();
-		// console.log("num y true");
-		console.log(randNumRes);
-	}
-	if (symY === true) {
-		var randSymRes = getRandomSymbol();
-		// console.log("sym y true");
-		console.log(randSymRes);
-	}
 	if (
 		lowerY === false &&
 		upperY === false &&
@@ -65,20 +46,19 @@ function GenPassword(lng, lowerY, upperY, numberY, symY) {
 		symY === false
 	) {
 		alert("no boxes selected!");
+		return false;
 	}
-	var GenPassW = randLowerRes + randUpperRes + randNumRes + randSymRes;
+	var GenPassW = "";
 	// console.log(GenPassW);
-
-	for (var i = 1; i < lng; i++) {
+	for (var i = 0; i < lng; i++) {
 		// console.log(i);
-		// console.log(GenPassW);
-		// GenPassW = GenPassW + "";
 		// characters to choose for pw
-		var firstrand = getRandomLower();
-		var secondrand = getRandomUpper();
-		var thirdrand = getRandomNumber();
-		var forthrand = getRandomSymbol();
-		GenPassW += firstrand + secondrand + thirdrand + forthrand;
+		var newvar = randomCharacter();
+		if (newvar.length === 0) {
+			i -= 1;
+		}
+		GenPassW += newvar;
+
 		console.log(GenPassW);
 
 		// console.log(GenPassW);
@@ -86,7 +66,19 @@ function GenPassword(lng, lowerY, upperY, numberY, symY) {
 	}
 
 	// getRandomNumber();
+	function randomCharacter() {
+		var generatedNumber = Math.floor(Math.random() * 4) + 1;
 
+		if (generatedNumber === 1) {
+			return getRandomLower(lowerY);
+		} else if (generatedNumber === 2) {
+			return getRandomUpper(upperY);
+		} else if (generatedNumber === 3) {
+			return getRandomNumber(numberY);
+		} else if (generatedNumber === 4) {
+			return getRandomSymbol(symY);
+		}
+	}
 	// resultEL.innerText = generatethePassword(
 	// 	lengthY,
 	// 	lowerY,
@@ -104,21 +96,37 @@ function GenPassword(lng, lowerY, upperY, numberY, symY) {
 	// 	getRandomSymbol,
 	// };
 	// generate random lower. math.floor rounds down, math.random starts at pos 97 of the character code and moves up to 26 places (97-123). returning string, because it's a letter.
-	function getRandomLower() {
-		return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+	function getRandomLower(checklow) {
+		if (checklow === true) {
+			return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+		} else {
+			return "";
+		}
 	}
 	// generate random upper. math.floor rounds down, math.random starts at pos 65 of the character code and moves up to 26 places (65-). returning string, because it's a letter.
-	function getRandomUpper() {
-		return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+	function getRandomUpper(checkupper) {
+		if (checkupper === true) {
+			return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+		} else {
+			return "";
+		}
 	}
 	// generate random number. the + before String forces it to return a number.
-	function getRandomNumber() {
-		// console.log(String.fromCharCode(Math.floor(Math.random() * 10) + 48));
-		return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+	function getRandomNumber(checknumber) {
+		if (checknumber === true) {
+			// console.log(String.fromCharCode(Math.floor(Math.random() * 10) + 48));
+			return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+		} else {
+			return "";
+		}
 	}
 	// generate random symbol.
-	function getRandomSymbol() {
-		return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
+	function getRandomSymbol(checksymbol) {
+		if (checksymbol === true) {
+			return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
+		} else {
+			return "";
+		}
 	}
 	return GenPassW;
 }
