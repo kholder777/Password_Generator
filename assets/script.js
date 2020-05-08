@@ -1,44 +1,51 @@
-// link checkbox from html.
-const lowerEL = document.getElementById("lowercase");
-const upperEL = document.getElementById("uppercase");
-const numEL = document.getElementById("numbers");
-const symEL = document.getElementById("specialCharacters");
-// link length slider from html.
-const lengthEL = document.getElementById("lengthPW");
-const resultEL = document.getElementById("result");
-// link generate button from html.
-const genEL = document.getElementById("generatePW");
-// link clipboard button to html.
-const clipEL = document.getElementById("clipboard");
-// ........clipboard w3schools version...................
-function myFunction() {
-	/* Get the text field */
-	var copyText = document.getElementById("myInput");
+// lets try to make this document a prompt sequence that ends in a generated password.
+// 1. create first prompt: would you like to make a random password?
+//object.addEventListener("load", myScript);
+//document.onload();
+questionare();
+// var txt;
+var lengthX;
+var lowercase;
+var uppercase;
+var numbers;
+var SpecialCharacters;
+function questionare() {
+	if (confirm("Create a randomized password!")) {
+		lengthX = prompt(
+			"How many characters for your password? Please pick a number btwn 8 & 128."
+		);
+		console.log(lengthX);
 
-	/* Select the text field */
-	copyText.select();
-	copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+		if (lengthX >= 8 && lengthX <= 128) {
+			lowercase = confirm("Want lowercase letters?");
+			uppercase = confirm("Want uppercase letters?");
+			numbers = confirm("Want numbers?");
+			SpecialCharacters = confirm("Want symbols?");
+			if (
+				lowercase === false &&
+				uppercase === false &&
+				numbers === false &&
+				SpecialCharacters === false
+			) {
+				alert("Please select at least one character type.");
+				questionare();
+			}
+			// ---QUESTION: how do i make this a checkbox prompt?
+		} else {
+			alert("Invalid length selected. Please try again.");
 
-	/* Copy the text inside the text field */
-	document.execCommand("copy");
+			// rerun function here!!??
+			questionare();
 
-	/* Alert the copied text */
-	alert("Copied the text: " + copyText.value);
+			//---create a function to make it run again after this. _QUESTION: at this point, it should automatically generate the first prompt. How do i do this??
+		}
+	} else {
+		alert("Password generator canceled!");
+	}
+
+	GenPassword(lengthX, lowercase, uppercase, numbers, SpecialCharacters);
 }
-//   ..............................................................
-// add event listeners for checkboxes.
 
-// add event listener for generate button.
-genEL.addEventListener("click", function () {
-	const lengthY = +lengthEL.value;
-	const lowerY = lowerEL.checked;
-	const upperY = upperEL.checked;
-	const numberY = numEL.checked;
-	const symY = symEL.checked;
-	resultEL.innerText = GenPassword(lengthY, lowerY, upperY, numberY, symY);
-	//resultEL.innerText = GenPassword(5, true, false, false, false);
-});
-// add password function (a pass by parameter local variables.)
 function GenPassword(lng, lowerY, upperY, numberY, symY) {
 	// init password var.
 
@@ -49,8 +56,8 @@ function GenPassword(lng, lowerY, upperY, numberY, symY) {
 		numberY === false &&
 		symY === false
 	) {
-		alert("no boxes selected!");
-		return "Please check >/= 1 box.";
+		// 	alert("no boxes selected!");
+		return;
 	}
 	var GenPassW = "";
 	var w = 0;
@@ -84,23 +91,7 @@ function GenPassword(lng, lowerY, upperY, numberY, symY) {
 			return getRandomSymbol(symY);
 		}
 	}
-	// resultEL.innerText = generatethePassword(
-	// 	lengthY,
-	// 	lowerY,
-	// 	upperY,
-	// 	numberY,
-	// 	symY
-	// );
 
-	// function generatethePassword(numEL, upperEL, lowerEL, symEL) {}
-
-	// const randomFunction = {
-	// 	getRandomLower,
-	// 	getRandomUpper,
-	// 	getRandomNumber,
-	// 	getRandomSymbol,
-	// };
-	// generate random lower. math.floor rounds down, math.random starts at pos 97 of the character code and moves up to 26 places (97-123). returning string, because it's a letter.
 	function getRandomLower(checklow) {
 		if (checklow === true) {
 			return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -133,5 +124,12 @@ function GenPassword(lng, lowerY, upperY, numberY, symY) {
 			return "";
 		}
 	}
-	return GenPassW;
+	if (
+		lowercase === true ||
+		uppercase === true ||
+		numbers === true ||
+		SpecialCharacters === true
+	) {
+		alert(GenPassW);
+	}
 }

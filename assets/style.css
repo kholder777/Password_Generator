@@ -1,6 +1,25 @@
 /* add background color */
+body {
+    width: 100%;
+    background-color: aqua;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
 
 /* add container style */
+body div {
+    width: 50%;
+    background-color: white;
+    color: blue;
+    border-radius: 1.5rem;
+    border-color: black;
+    border-width: 55px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
 
 /* add generated password readout block style */
 
