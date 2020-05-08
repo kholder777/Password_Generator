@@ -17,10 +17,10 @@ function questionare() {
 		console.log(lengthX);
 
 		if (lengthX >= 8 && lengthX <= 128) {
-			lowercase = confirm("Want lowercase letters?");
-			uppercase = confirm("Want uppercase letters?");
-			numbers = confirm("Want numbers?");
-			SpecialCharacters = confirm("Want symbols?");
+			lowercase = confirm("Press OK to include lowercase letters.");
+			uppercase = confirm("Press OK to include uppercase letters.");
+			numbers = confirm("Press OK to include numbers.");
+			SpecialCharacters = confirm("Press OK to include symbols.");
 			if (
 				lowercase === false &&
 				uppercase === false &&
