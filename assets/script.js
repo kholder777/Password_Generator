@@ -10,7 +10,7 @@ var uppercase;
 var numbers;
 var SpecialCharacters;
 function questionare() {
-	if (confirm("Create a randomized password!")) {
+	if (confirm("Press OK to create a randomized password!")) {
 		lengthX = prompt(
 			"How many characters for your password? Please pick a number btwn 8 & 128."
 		);
